@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% block title %}Home - Blog Management System{% endblock %}
+
+{% block content %}
+<div class="search-bar">
+    <form method="GET" action="{% url 'home' %}">
+        <input type="text" name="search" placeholder="Search blogs..." required>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<h2 style="color: red; text-align: center;">Blogs</h2>
+<div id="blog-list" class="grid-container">
+    {% for blog in blogs %}
+    <div class="blog">
+        <h3>{{ blog.title }}</h3>
+        <p>Author: {{ blog.author.username }} | Likes: {{ blog.likes.count }} | Comments: {{ blog.comments.count }}</p>
+        <a href="{% url 'blog_detail' blog.id %}">[Read More]</a>
+        <hr>
+    </div>
+    {% empty %}
+    <p>No blogs available.</p>
+    {% endfor %}
+</div>
+
+<a href="{% url 'create_blog' %}" class="create-blog-button" style="margin-left: 40%;">Create New Blog</a>
+{% endblock %}

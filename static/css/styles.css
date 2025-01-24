@@ -1,0 +1,187 @@
+body {
+
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 10px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+.blog {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.create-blog-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.create-blog-button:hover {
+    background-color: #0056b3;
+    
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.login {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.login h2 {
+    text-align: center;
+}
+
+.login div {
+    margin-bottom: 15px;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.login button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.login a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.register h2 {
+    text-align: center;
+}
+
+.register div {
+    margin-bottom: 15px;
+}
+
+.register label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.register input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.register button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.register a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*home page*/
+.search-bar{
+    display: flex;
+    justify-content: center;
+
+}
+.create-blog{
+    text-align: center;
+}
+
+/* Grid container for the blog list */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); /* Responsive columns */
+    gap: 20px; /* Spacing between grid items */
+    padding: 5%;
+    background-color: #f9f9f9;
+}
+
+/* Individual blog card */
+.blog {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Blog title */
+.blog h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Blog metadata */
+.blog p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Read More link */
+.blog a {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hover effects for blog cards */
+.blog:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav a{
+    text-decoration: none;
+}

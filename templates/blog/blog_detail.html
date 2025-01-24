@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ blog.title }} - Blog Management System{% endblock %}
+
+{% block content %}
+<div class="blog-detail">
+    <h2>{{ blog.title }}</h2>
+    <p>Author: {{ blog.author.username }}</p>
+    <p>Date: {{ blog.created_at }}</p>
+    <hr>
+    <p>Content:</p>
+    <p>{{ blog.content }}</p>
+    {% if blog.image %}  <!-- Assuming you have an image field in your Blog model -->
+        <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+    {% endif %}
+    <hr>
+    <p>Likes: {{ likes_count }} 
+        <form method="POST" action="{% url 'like_blog' blog.id %}">
+            {% csrf_token %}
+            <button type="submit">[Like]</button>
+        </form>
+    </p>
+    <hr>
+    <h3>Comments:</h3>
+    <ul>
+        {% for comment in comments %}
+        <li>{{ comment.author.username }}: {{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h4>Add a Comment:</h4>
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="content" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    {% if request.user == blog.author %}
+        <a href="{% url 'edit_blog' blog.id %}">Edit</a>
+        <a href="{% url 'delete_blog' blog.id %}">Delete</a>
+    {% endif %}
+</div>
+{% endblock %}

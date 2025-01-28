@@ -25,7 +25,7 @@ def create_blog(request):
     if request.method == 'POST':
         title = request.POST['title']
         content = request.POST['content']
-        image=request.FILES.get('image')
+        image = request.FILES.get('image')
         Blog.objects.create(title=title, content=content, author=request.user, image=image)
         return redirect('home')
     return render(request, 'blog/create_blog.html')
@@ -52,18 +52,20 @@ def blog_detail(request, id):
     blog = get_object_or_404(Blog, id=id)  # Fetch the blog by ID
     comments = blog.comments.all()  # Get all comments related to the blog
     likes_count = blog.likes.count()  # Get the count of likes
+    img = blog.image.url if blog.image else None  # Get image URL if available
 
     if request.method == 'POST':
         # Handle comment submission
         content = request.POST.get('content')
         if content:
             Comment.objects.create(blog=blog, author=request.user, content=content)
-            return redirect('blog_detail', id=blog.id)  # Redirect to the same blog detail page
+            return redirect('blog_detail', id=blog.id)
 
     return render(request, 'blog/blog_detail.html', {
         'blog': blog,
         'comments': comments,
         'likes_count': likes_count,
+        'img': img,
     })
 
 

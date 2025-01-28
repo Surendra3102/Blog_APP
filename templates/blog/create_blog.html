@@ -5,7 +5,7 @@
 {% block content %}
 <div class="create-blog">
 <h2>Create New Blog</h2>
-<form method="POST" action="{% url 'create_blog' %}">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
         <label for="title">Title:</label>

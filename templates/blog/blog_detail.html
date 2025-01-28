@@ -10,9 +10,10 @@
     <hr>
     <p>Content:</p>
     <p>{{ blog.content }}</p>
-    {% if blog.image %}  <!-- Assuming you have an image field in your Blog model -->
-        <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+    {% if blog.image %}
+    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" height="120px" width="120px">
     {% endif %}
+
     <hr>
     <p>Likes: {{ likes_count }} 
         <form method="POST" action="{% url 'like_blog' blog.id %}">

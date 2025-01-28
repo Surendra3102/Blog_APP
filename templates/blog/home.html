@@ -15,9 +15,10 @@
 <div id="blog-list" class="grid-container">
     {% for blog in blogs %}
     <div class="blog">
+        <img src="{{ blog.image.url }}" alt="Blog Image" width="20%" height="40%">
         <h3>{{ blog.title }}</h3>
         <p>Author: {{ blog.author.username }} | Likes: {{ blog.likes.count }} | Comments: {{ blog.comments.count }}</p>
-        <a href="{% url 'blog_detail' blog.id %}">[Read More]</a>
+        <a href="{% url 'blog_detail' blog.id %}">Read More</a>
         <hr>
     </div>
     {% empty %}

@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models
 from django.contrib.auth.models import User
 
 class Blog(models.Model):
@@ -22,3 +21,6 @@ class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 # Create your models here.
+from django.db import models
+from django.contrib.auth.models import User
+
